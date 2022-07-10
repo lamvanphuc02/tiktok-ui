@@ -1,22 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
-import Button from './component/Button';
-// import Button from "~/component/Button";
-
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { publicRoutes } from '~/routes';
+import { DefaultLayout } from '~/component/Layout';
+import { Fragment } from 'react';
 function App() {
     return (
-        <div className="App">
-            {/* <Button /> */}
-            <header className="App-header">
-                <img src={logo} className="App-logo" alt="logo" />
-                <p>
-                    Edit <code>src/App.js</code> and save to reload. hello <Button />
-                </p>
-                <a className="App-link" href="https://reactjs.org" target="_blank" rel="noopener noreferrer">
-                    Learn React
-                </a>
-            </header>
-        </div>
+        <Router>
+            <div className="App">
+                <Routes>
+                    {publicRoutes.map((routes, index) => {
+                        let Layout = DefaultLayout;
+                        if (routes.layout) {
+                            Layout = routes.layout;
+                        } else if (routes.layout === null) {
+                            Layout = Fragment;
+                        }
+                        const Page = routes.component;
+                        return (
+                            <Route
+                                key={index}
+                                path={routes.path}
+                                element={
+                                    <Layout>
+                                        <Page /> {/* đây là children của Layout*/}
+                                    </Layout>
+                                }
+                            />
+                        );
+                    })}
+                </Routes>
+            </div>
+        </Router>
     );
 }
 
