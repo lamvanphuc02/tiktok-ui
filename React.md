@@ -166,3 +166,6 @@ I.các npm cần cho dự án
 
     -   thư viện classnames
         -   npm i classnames
+            <!-- ///////////////////////////// -->
+            deploy ứng dụng lên netlify
+            https://www.youtube.com/watch?v=R65aFh-Dstw
