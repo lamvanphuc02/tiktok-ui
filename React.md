@@ -159,3 +159,10 @@ I.các npm cần cho dự án
       "web-vitals": "^2.1.4" -->
 
     },
+
+    <!-- //////////////////////////////// -->
+
+    thư viện hỗ trợ thêm
+
+    -   thư viện classnames
+        -   npm i classnames
